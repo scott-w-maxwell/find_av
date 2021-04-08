@@ -72,7 +72,7 @@ function find_av(){
 	// search
 	for (var program in program_list){
 		for (var key in av_list){
-			if (program_list[program] === key){
+			if (program_list[program].toLowerCase() === key.toLowerCase()){
 				av_found = 1
 				document.write(key, ': ')
 				document.write(av_list[key], '<br>')
