@@ -1,3 +1,7 @@
+<input id = 'AV list'></input>
+<button id = 'Find AV' onclick ="find_av()">Find AV</button>
+
+
 <script>
 
 av_list = {
@@ -49,13 +53,31 @@ av_list = {
 		   'AVENGINE.EXE': 'Panda Antivirus Pro',
 		   'TotalAV.exe': 'TotalAV Ultimate Antivirus',
 	  	  }
-		   
-// for (var key in av_list) {
-//     if (av_list.hasOwnProperty(key)) {  
-//     	document.write(key, ': ');
-//     	document.write(av_list[key], '<br>');
-//     }
-// }
+
+function find_av(){
+
+	input_text = document.getElementById('AV list').value
+
+	// remove spaces
+	input_text = input_text.replace(' ', '')
+	// separate input_text by commas and create list
+	program_list = input_text.split(',')
+
+	// Find matching AV executables
+	for (var key in av_list) {
+	    if (av_list.hasOwnProperty(key)) {
+	    	for (var program in program_list){
+
+	    		if (program === 'TotalAV.exe'){
+	    			console.log('HERE')
+					document.write(key, ': ');
+					document.write(av_list[key], '<br>');
+	    		}
+	    	}
+		}
+
+	}
+}
 
 
 </script>
