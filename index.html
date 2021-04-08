@@ -58,7 +58,10 @@ av_list = {
 	  	  }
 
 function find_av(){
+
 	input_text = document.getElementById('AV list').value
+
+	var av_found = 0 
 
 	// remove spaces
 	input_text = input_text.replace(' ', '')
@@ -70,10 +73,15 @@ function find_av(){
 	for (var program in program_list){
 		for (var key in av_list){
 			if (program_list[program] === key){
+				av_found = 1
 				document.write(key, ': ')
 				document.write(av_list[key], '<br>')
 			}
 		}
+	}
+
+	if (av_found === 0){
+		document.write('No AV was found')
 	}
 }
 
